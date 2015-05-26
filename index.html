@@ -3,10 +3,127 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="node_modules/angular/angular.js"></script>
+    <script src="node_modules/angular-messages/angular-messages.js"></script>
+    <script src="index.js"></script>
     <title></title>
 </head>
-<body ng-app>
+<body ng-app='myApp'>
+
+
+    <script type="text/ng-template" id="error-messages">
+        <div ng-message="required">field required</div>
+        <div ng-message="email">email invalid</div>
+    </script>
+
+    <div class="container" ng-controller="formController">
+        <h2>Bug Grass</h2>
+        <form role="form" name="shipmentForm" class="form-horizontal" ng-submit="reRoute()" novalidate>
+            <div class="form-group">
+                <div class="form-group form-group-lg">
+                    <label class="col-sm-2 control-label">Email</label>
+                    <div class="col-sm-10">
+                        <input name="email" type="email" class="form-control" ng-model="data.email" placeholder="Email" required>
+                    </div>
+                </div>
+
+                <div ng-messages="shipmentForm.email.$error" ng-if="shipmentForm.email.$touched" role="alert" ng-messages-include="error-messages">
+                </div>
+
+                <div class="form-group form-group-lg">
+                    <label class="col-sm-2 control-label">First name</label>
+                    <div class="col-sm-10">
+                        <input name="firstName" class="form-control" placeholder="First name" ng-model="data.firstName" required>
+                    </div>
+                </div>
+
+                <div ng-messages="shipmentForm.firstName.$error" ng-if="shipmentForm.firstName.$touched" role="alert" ng-messages-include="error-messages">
+                </div>
+
+                <div class="form-group form-group-lg">
+                    <label class="col-sm-2 control-label">Last name</label>
+                    <div class="col-sm-10">
+                        <input name="lastName" class="form-control" ng-model="data.lastName" placeholder="Last name" required>
+                    </div>
+                </div>
+
+                <div ng-messages="shipmentForm.lastName.$error" ng-if="shipmentForm.lastName.$touched" role="alert" ng-messages-include="error-messages">
+                </div>
+
+                <div class="form-group form-group-lg">
+                    <label class="col-sm-2 control-label">Company</label>
+                    <div class="col-sm-10">
+                        <input name="company" class="form-control" ng-model="data.company.$error" placeholder="Company (optional)" required>
+                    </div>
+                </div>
+
+                <div class="form-group form-group-lg">
+                    <label class=" col-sm-2 control-label">Address</label>
+                    <div class="col-sm-10">
+                        <input name="address" ng-model="data.address" class="form-control" placeholder="Address" required>
+                    </div>
+                </div>
+                <div ng-messages="shipmentForm.address.$error" ng-if="shipmentForm.address.$touched" role="alert" ng-messages-include="error-messages">
+                </div>
+                <div class="form-group form-group-lg">
+                    <label class="col-sm-2 control-label">Apt suite, etc. (optional)</label>
+                    <div class="col-sm-10">
+                        <input name="unit" ng-model="data.unit" class="form-control" placeholder="Apt suite, etc.(optional)" required>
+                    </div>
+                </div>
+
+
+                <div class="form-group form-group-lg">
+                    <label class="col-sm-2 control-label" >City</label>
+                    <div class="col-sm-10">
+                        <input name="city" ng-model="data.city" class="form-control" placeholder="City" required>
+                    </div>
+                </div>
+
+                <div ng-messages="shipmentForm.city.$error" ng-if="shipmentForm.city.$touched" role="alert" ng-messages-include="error-messages">
+                </div>
+
+                <div class="form-group form-group-lg">
+                    <label class="col-sm-2 control-label" >Country</label>
+                    <div class="col-sm-10">
+                        <input name="country" ng-model="data.country" class="form-control" placeholder="Country" required>
+                    </div>
+                </div>
+
+                <div ng-messages="shipmentForm.country.$error" ng-if="shipmentForm.country.$touched" role="alert" ng-messages-include="error-messages">
+                </div>
+
+                <div class="form-group form-group-lg">
+                    <label class="col-sm-2 control-label">State</label>
+                    <div class="col-sm-10">
+                        <input name="state" ng-model="data.state" class="form-control" placeholder="State" required>
+                    </div>
+                </div>
+                <div ng-messages="shipmentForm.state.$error" ng-if="shipmentForm.state.$touched" role="alert" ng-messages-include="error-messages">
+                </div>
+                <div class="form-group form-group-lg">
+                    <label class="col-sm-2 control-label">Zip code</label>
+                    <div class="col-sm-10">
+                        <input name="zipCode" ng-model="data.zipCode" class="form-control" placeholder="Zip code" required>
+                    </div>
+                </div>
+                <div ng-messages="shipmentForm.zipCode.$error" ng-if="shipmentForm.zipCode.$touched" role="alert" ng-messages-include="error-messages">
+                </div>
+                <div class="form-group form-group-lg">
+                    <label class="col-sm-2 control-label">Phone</label>
+                    <div class="col-sm-10">
+                        <input name="phone" ng-model="data.phone" class="form-control" placeholder="Phone" required>
+                    </div>
+                </div>
+                <div ng-messages="shipmentForm.phone.$error" ng-if="shipmentForm.phone.$touched" role="alert" ng-messages-include="error-messages">
+                </div>
+                <input ng-disabled="shipmentForm.$invalid" type="submit" value="Submit" class="btn btn-info btn-lg submit-btn pull-right" name="submit">
+            </div>
+        </form>
+    </div>
 
 </body>
-<script src="node_modules/angular/angular.js"></script>
+
 </html>

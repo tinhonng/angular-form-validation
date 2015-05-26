@@ -1,0 +1,9 @@
+@media(max-width:767px){
+    .submit-btn{
+        width:100%;
+    }
+}
+
+div[ng-messages]{
+    color: #b71c36;
+}
